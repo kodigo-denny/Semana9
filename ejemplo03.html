@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script src="assets/js/segundoPrincipio/Item.js"></script>
+<script src="assets/js/segundoPrincipio/Order.js"></script>
+<script src="assets/js/segundoPrincipio/Shipping.js"></script>
+<script src="assets/js/segundoPrincipio/ShippingGround.js"></script>
+<script src="assets/js/segundoPrincipio/ShippingAir.js"></script>
+
+<script>
+    let item1 = new Item("Monitor", 10, 120);
+    let item2 = new Item("Teclado", 1, 30);
+    let item3 = new Item("Mouse", 1, 5);
+
+    let envio1 = new Order(item1, 2);// Mopnitores
+    let envio2 = new Order(item2, 100);// Teclados
+    let envio3 = new Order(item3, 4);// Mouse
+
+    let ground = new ShippingGround();
+    let air = new ShippingAir();
+
+    envio1.setShippingType(ground);
+    envio2.setShippingType(air);
+    envio3.setShippingType(air);
+
+    console.log("Costo del primer orden: " + envio1.shipping.getShippingCost(envio1.getTotal(), envio1.item.getTotalWeight()))
+    console.log("Costo del segunda orden: " + envio2.shipping.getShippingCost(envio2.getTotal(), envio2.item.getTotalWeight()))
+    console.log("Costo del tercera orden: " + envio3.shipping.getShippingCost(envio3.getTotal(), envio3.item.getTotalWeight()))
+</script>

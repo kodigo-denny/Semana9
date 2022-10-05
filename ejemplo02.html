@@ -11,15 +11,35 @@
 </body>
 </html>
 <script src="assets/js/Empleado.js"></script>
+<script src="assets/js/Cargo.js"></script>
+<script src="assets/js/HorasTrabajo.js"></script>
+<script src="assets/js/ReporteHoraTrabajo.js"></script>
+<script src="assets/js/SalarioHora.js"></script>
 
 <script>
+    let salario = new SalarioHora(1, 30);
+
+    let cargo = new Cargo(1, "Programador", salario);
+
+    let empleado = new Empleado("Denny", "Apellido", cargo);
+
+    empleado.horasTrabajo.setHoras(41);
+
+    let total = ReporteHoraTrabajo.reporteSalarioHorasTrabajadas(empleado);
+
+    console.log("Total del salario: $" + total);
+
+
+
+    // Sin principio de un unica responsabilidad
+    /*
     let empleado = new Empleado("Denny", "Herrera");
 
     empleado.setSalarioHora(5);
     empleado.setHoras(10);
 
-    console.log("Total del salario: $" + empleado.imprimirReporteHorasTrabajadas())
+    console.log("Total del salario: $" + empleado.reporteSalarioHorasTrabajadas())
 
     console.log(empleado.getNombre())
-    console.log(empleado.getApellidoNombre())
+    console.log(empleado.getApellidoNombre())*/
 </script>

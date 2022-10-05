@@ -1,11 +1,15 @@
 class Empleado{
     nombre
     apellido
-    horas
-    salarioHora
-    constructor(nombre, apellido){
+    cargo // Objeto
+    horasTrabajo // Objeto
+   
+    constructor(nombre, apellido, cargo){
         this.nombre = nombre;
         this.apellido = apellido;
+        this.cargo = cargo;
+        this.horasTrabajo = new HorasTrabajo();
+        this.horasTrabajo.setHoras(0);
     }
 
     getNombre(){
@@ -15,18 +19,8 @@ class Empleado{
     getApellidoNombre(){
         return this.apellido + ", " + this.nombre;
     }
+    
 
-    setHoras(horas){
-        if(horas > 0)
-        this.horas = horas;
-    }
-
-    setSalarioHora(salarioHora){
-        if(salarioHora>0)
-            this.salarioHora = salarioHora;
-    }
-
-    imprimirReporteHorasTrabajadas(){
-        return this.horas * this.salarioHora;
-    }
+    
+    
 }
